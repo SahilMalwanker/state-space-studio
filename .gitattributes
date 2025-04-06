@@ -1,0 +1,9 @@
+* text=auto eol=lf
+
+# GitHub would otherwise guess Objective-C for .m files
+*.m linguist-language=MATLAB
+
+# Rendered media: keep them out of diffs and language statistics
+*.png binary
+*.gif binary
+docs/assets/** linguist-generated=true
