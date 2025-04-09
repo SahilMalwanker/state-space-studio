@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.env
+.env.*
+
+# Figures rendered outside docs/assets (e.g. by CI or `state-space-studio figures --out rendered`)
+rendered/
+
+# MATLAB / Simulink
+*.asv
+*.autosave
+*.slxc
+*.mex*
+slprj/
+codegen/
+matlab/figures/
+matlab/simulink/build/
+
+# Editors and operating systems
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
