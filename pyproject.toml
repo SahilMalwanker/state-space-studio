@@ -1,0 +1,69 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "state-space-studio"
+version = "1.0.0"
+description = "State-space modelling, analysis and control design (pole placement, PI state feedback, LQR) for five physical plants, in Python and MATLAB/Simulink."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "The State-Space Studio contributors" }]
+requires-python = ">=3.11"
+keywords = [
+    "control-systems",
+    "state-space",
+    "pole-placement",
+    "lqr",
+    "pi-control",
+    "simulation",
+    "matlab",
+    "simulink",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Education",
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Scientific/Engineering :: Mathematics",
+    "Topic :: Scientific/Engineering :: Physics",
+]
+dependencies = [
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "matplotlib>=3.7",
+    "pillow>=9.5",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.4", "ruff==0.16.10"]
+
+[project.scripts]
+state-space-studio = "state_space_studio.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 110
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "NPY", "SIM", "RUF", "PT"]
+ignore = [
+    "RUF001", # typographic minus and multiplication signs in plot labels are intended
+    "RUF002",
+    "RUF003",
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["state_space_studio"]
